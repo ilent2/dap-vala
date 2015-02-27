@@ -1,7 +1,8 @@
-package_name: dap-vala
+package_name: vala
 version: 0.0.1dev
 license: GPLv2+
-summary: A fresh new DAP
-homepage: FIXME
+summary: Vala assistants (console app, Gtk)
+homepage: https://github.com/ilent2/dap-vala
 authors: [Isaac Lenton <isaac@isuniversal.com>]
+bugreports: https://github.com/ilent2/dap-vala/issues
 description: Set of crt assistants for Vala.  Contains assistants for new console program and Gtk application.
