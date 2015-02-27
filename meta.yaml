@@ -1,0 +1,7 @@
+package_name: dap-vala
+version: 0.0.1dev
+license: GPLv2+
+summary: A fresh new DAP
+homepage: FIXME
+authors: [Isaac Lenton <isaac@isuniversal.com>]
+description: Set of crt assistants for Vala.  Contains assistants for new console program and Gtk application.
