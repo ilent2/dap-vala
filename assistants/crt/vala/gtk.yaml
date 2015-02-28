@@ -1,0 +1,31 @@
+fullname: GTK Application
+description: 'Assistant to help you create a basic GTK application with Vala.'
+
+dependencies:
+- use: super.dependencies
+
+args:
+  name:
+    use: common_args
+
+  github:
+    use: github
+
+files:
+  vgtksources: &vgtksources
+    source: .
+
+run:
+- setup_project_dir:
+    from: $name
+    on_existing: fail
+    create_topdir: normalized
+    contdir_var: dirname
+    topdir_normalized_var: basename
+- log_i: 'Creating Vala GTK project $basename in $dirname ...'
+- cl: cd "$dirname"
+- cl_i: cp -r *vgtksources "$basename"
+- cl: cd "$basename"
+- if defined $github:
+  - github: create_and_push
+- log_i: 'GTK application $basename in $dirname created.'

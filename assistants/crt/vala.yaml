@@ -1,1 +1,5 @@
-fullname: dap-vala
+fullname: Vala
+description: This is the base Vala assistant.  You have to choose a specific project type.
+
+dependencies:
+- rpm: ['vala', 'glib2-devel', 'gcc']

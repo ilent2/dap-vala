@@ -1,0 +1,33 @@
+fullname: Console Application
+description: 'Assistant to help you create a console application using Vala.'
+
+dependencies:
+- use: super.dependencies
+
+args:
+  name:
+    use: common_args
+
+  github:
+    use: github
+
+files:
+  vconsolesources: &vconsolesources
+    source: .
+
+run:
+- setup_project_dir:
+    from: $name
+    on_existing: fail
+    create_topdir: normalized
+    contdir_var: dirname
+    topdir_normalized_var: basename
+- log_i: 'Creating vala console project $basename in $dirname ...'
+- cl: cd "$dirname"
+- cl_i: cp -r *vconsolesources "$basename"
+- cl: cd "$basename"
+- cl: sed -i "s|NAME|$basename|" main.vala
+- if defined $github:
+  - github: create_and_push
+- log_i: 'Console project $basename in $dirname created.'
+
