@@ -3,6 +3,7 @@ description: 'Assistant to help you create a console application using Vala.'
 
 dependencies:
 - use: super.dependencies
+- rpm: ['automake', 'autoconf']
 
 args:
   name:
@@ -26,7 +27,20 @@ run:
 - cl: cd "$dirname"
 - cl_i: cp -r *vconsolesources "$basename"
 - cl: cd "$basename"
-- cl: sed -i "s|NAME|$basename|" main.vala
+- cl: sed -i "s|NAME|$basename|" src/main.vala
+- cl: sed -i "s|NAME|$basename|" src/Makefile.am
+- cl: sed -i "s|NAME|$basename|" configure.ac
+- log_i: 'Run autoreconf'
+- cl_i: autoreconf --install
+- log_i: 'Run configure script'
+- cl_i: ./configure
+- cl_i: make clean
+- log_i: 'Compiling sources'
+- cl_i: make
+- log_i: 'Run make dist to create a tar ball'
+- log_i: 'More information about autotools can be found here:'
+- log_i: 'automake: http://www.gnu.org/software/automake/manual/automake.html'
+- log_i: 'autoconf: http://www.gnu.org/software/autoconf/manual/autoconf.html'
 - if defined $github:
   - github: create_and_push
 - log_i: 'Console project $basename in $dirname created.'

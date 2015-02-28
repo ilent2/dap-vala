@@ -1,0 +1,14 @@
+bin_PROGRAMS = NAME
+
+NAME_SOURCES = \
+	main.vala
+
+NAME_CFLAGS = \
+	$(NAME_U_CFLAGS)
+
+NAME_VALAFLAGS = \
+	--target-glib $(GLIB_REQUIRED)
+
+NAME_LDADD = \
+	$(NAME_U_LIBS)
+
