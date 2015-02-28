@@ -1,5 +1,5 @@
 package_name: vala
-version: 0.0.1dev
+version: 0.1.0
 license: GPLv2+
 summary: Vala assistants (console app, Gtk)
 homepage: https://github.com/ilent2/dap-vala
