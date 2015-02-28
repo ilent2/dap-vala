@@ -3,7 +3,6 @@ description: 'Assistant to help you create a console application using Vala.'
 
 dependencies:
 - use: super.dependencies
-- rpm: ['automake', 'autoconf']
 
 args:
   name:
