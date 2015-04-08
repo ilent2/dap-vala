@@ -41,6 +41,9 @@ run:
 - log_i: 'automake: http://www.gnu.org/software/automake/manual/automake.html'
 - log_i: 'autoconf: http://www.gnu.org/software/autoconf/manual/autoconf.html'
 - if defined $github:
-  - github: create_and_push
+  - github:
+    - create_and_push
+    - reponame: $basename
+      login: $github
 - log_i: 'Console project $basename in $dirname created.'
 
